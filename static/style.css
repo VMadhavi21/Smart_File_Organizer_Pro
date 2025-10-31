@@ -1,0 +1,43 @@
+body.dark-theme {
+  font-family: 'Segoe UI', sans-serif;
+  background: #101820;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+.sidebar {
+  width: 230px;
+  background: #1c1f26;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  padding: 1rem;
+}
+.main {
+  margin-left: 250px;
+  padding: 2rem;
+}
+.btn {
+  background: #00bfa6;
+  color: white;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.btn:hover { background: #03dac6; }
+.toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #00bfa6;
+  color: white;
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  opacity: 0;
+  transition: opacity 0.4s;
+  z-index: 1000;
+}
+.toast-ok { background: #00bfa6; }
+.toast-err { background: #e74c3c; }

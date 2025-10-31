@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Records - Smart File Organizer Pro</title>
+<link rel="stylesheet" href="/static/style.css"></head>
+<body class="dark-theme">
+<aside class="sidebar"><h2>Smart File Organizer Pro</h2><nav><a href="/">Dashboard</a> | <a href="/records">Records</a></nav></aside>
+<main class="main">
+<h1>Organized File Records</h1>
+<table border="1" cellpadding="5" style="width:100%;border-collapse:collapse;">
+<tr><th>ID</th><th>Filename</th><th>Type</th><th>Path</th><th>Date</th></tr>
+{% for r in files %}
+<tr><td>{{ r[0] }}</td><td>{{ r[1] }}</td><td>{{ r[2] }}</td><td>{{ r[3] }}</td><td>{{ r[4] }}</td></tr>
+{% endfor %}
+</table>
+</main></body></html>

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Smart File Organizer Pro</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body class="dark-theme">
+  <aside class="sidebar">
+    <h2>Smart File Organizer Pro</h2>
+    <nav><a href="/">Dashboard</a> | <a href="/records">Records</a></nav>
+  </aside>
+  <main class="main">
+    <h1>Dashboard</h1>
+    <form method="post" action="/organize">
+      <input name="local_path" placeholder="Enter local path (optional)" style="width:70%">
+      <button class="btn">Organize Now</button>
+    </form>
+    <hr>
+    <form id="uploadForm" enctype="multipart/form-data" method="post" action="/upload">
+      <input type="file" name="files" multiple>
+      <button class="btn">Upload</button>
+    </form>
+    <div id="toast" class="toast"></div>
+    <h2>Recent Files</h2>
+    <ul>
+      {% for f in files %}
+        <li>{{ f }}</li>
+      {% else %}
+        <li>No files uploaded yet.</li>
+      {% endfor %}
+    </ul>
+  </main>
+  <script>
+  function showToast(msg, ok=true) {
+    const toast = document.getElementById('toast');
+    toast.textContent = msg;
+    toast.className = ok ? 'toast toast-ok' : 'toast toast-err';
+    toast.style.opacity = 1;
+    setTimeout(()=>{ toast.style.opacity = 0; }, 3000);
+  }
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      showToast("{{ get_flashed_messages()[0] }}", true);
+    {% endif %}
+  {% endwith %}
+  </script>
+</body>
+</html>
